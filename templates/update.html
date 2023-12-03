@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Data Of Mongo DB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <style>
+        /* Add styles for underlining and reducing space */
+        .form-item label p {
+            text-decoration: underline;
+            margin-bottom: 5px; /* Adjust the space between text and border */
+        }
+    </style>
+</head> 
+
+<body>
+    <div class="form-item">
+        <label>
+            <center>
+                <p>Update The Data</p>
+            </center>
+        </label>
+    </div>
+    <form action="{{ url_for('update_item', item_id=item['_id']) }}" method="POST">           
+        <div class="form-item">
+            <label>Room Number : </label>
+            <div class="input-wrapper">
+                <input type="number" name="roomNo" id="roomNo" value="{{ item['RoomID'] }}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label>User Name : </label>
+            <div class="input-wrapper">
+                <input type="text" name="roomUser" id="roomUser" value="{{ item['User'] }}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label>Room User Count : </label>
+            <div class="input-wrapper">
+                <input type="number" name="roomCount" id="roomCount" value="{{ item['Count'] }}">
+            </div>
+        </div>
+        <div class="form-item">
+            <label>Days Of Stay In The Hotel : </label>
+            <div class="input-wrapper">
+                <input type="number" name="roomStay" id="roomStay" value="{{ item['Stay'] }}">
+            </div>
+        </div>
+        <!-- Center the button and increase the width of the rectangle box -->
+        <div style="text-align: center;">
+            <button id="submit" style="width: 200px;">Update</button>
+        </div>
+    </form>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>
